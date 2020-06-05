@@ -6,7 +6,7 @@
 /*   By: iwillens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 14:56:19 by iwillens          #+#    #+#             */
-/*   Updated: 2020/06/05 14:36:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/05 15:18:54 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	signal_handler(int signal)
 	{
 		if (signal == SIGINT)
 		{
-			errno = ERROR_CTRL_C;
 			g_errno = ERROR_CTRL_C;
 			write(0, "\b\b  \b\b", 6);
 		}
@@ -46,14 +45,31 @@ void	parent_signal_handler(int signal)
 {
 	if (signal == SIGINT)
 	{
-		errno = ERROR_CTRL_C;
-		g_errno = ERROR_CTRL_C;
 		ft_putstr("\n");
+		g_flags |= FLAG_SIGINT;
 	}
 	if (signal == SIGQUIT)
 	{
 		g_flags |= FLAG_SIGQUIT;
 	}
+}
+
+int		check_signal_flags(void)
+{
+	if (g_flags & FLAG_SIGQUIT)
+	{
+		g_flags ^= FLAG_SIGQUIT;
+		set_errno(ERROR_SIGQUIT);
+		return (1);
+	}
+	if (g_flags & FLAG_SIGINT)
+	{
+		g_flags ^= FLAG_SIGINT;
+		g_errno = ERROR_CTRL_C;
+		errno = ERROR_CTRL_C;
+		return (0);
+	}
+	return (0);
 }
 
 void	hook_signals(int caller_type, int pid)

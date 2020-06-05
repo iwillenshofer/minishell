@@ -6,7 +6,7 @@
 /*   By: iwillens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/15 13:38:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/05 13:42:03 by iwillens         ###   ########.fr       */
+/*   Updated: 2020/06/05 15:15:32 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ extern t_stream	g_stream;
 # define REDIR_IO_ERR 1
 
 # define FLAG_SIGQUIT 1
+# define FLAG_SIGINT 2
 
 /*
 ** Main functions.
@@ -293,6 +294,7 @@ int		subst_env_word(char *p, char **out);
 void	signal_handler(int signal);
 void	hook_signals(int caller_type, int pid);
 void	check_eof_signal(char *str);
+int		check_signal_flags(void);
 
 /*
 ** sequencer / pipes

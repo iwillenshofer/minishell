@@ -6,7 +6,7 @@
 /*   By: iwillens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 19:29:17 by iwillens          #+#    #+#             */
-/*   Updated: 2020/06/03 20:28:52 by iwillens         ###   ########.fr       */
+/*   Updated: 2020/06/05 15:54:59 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,8 @@ t_com	*exec_fork(t_com *com, t_com *start)
 		waitpid(pid, &status, 0);
 		if (set_errno(WEXITSTATUS(status)))
 			return (0);
-		if (g_flags & FLAG_SIGQUIT)
-		{
-			g_flags ^= FLAG_SIGQUIT;
-			set_errno(ERROR_SIGQUIT);
+		if (check_signal_flags())
 			return (0);
-		}
 	}
 	return (com);
 }
