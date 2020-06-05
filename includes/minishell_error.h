@@ -6,7 +6,7 @@
 /*   By: iwillens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 12:17:41 by iwillens          #+#    #+#             */
-/*   Updated: 2020/06/05 13:41:44 by iwillens         ###   ########.fr       */
+/*   Updated: 2020/06/05 14:35:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define ERROR_EXEC_FORMAT			8
 # define ERROR_PERMISSION_DENIED	126
 # define ERROR_SYNTAX				127
+# define ERROR_CTRL_C				130
 # define ERROR_NUMERIC_NEEDED		250
 # define ERROR_TOO_MANY_ARGS		251
 # define ERROR_N_TOO_MANY_ARGS		1

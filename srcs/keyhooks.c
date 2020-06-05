@@ -6,7 +6,7 @@
 /*   By: iwillens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 14:56:19 by iwillens          #+#    #+#             */
-/*   Updated: 2020/06/03 20:00:07 by iwillens         ###   ########.fr       */
+/*   Updated: 2020/06/05 14:36:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void	signal_handler(int signal)
 	if (signal == SIGINT || signal == SIGNAL_EOF)
 	{
 		if (signal == SIGINT)
+		{
+			errno = ERROR_CTRL_C;
+			g_errno = ERROR_CTRL_C;
 			write(0, "\b\b  \b\b", 6);
+		}
 		ft_putstr("\n");
 		ft_putstr_color(PROMPT);
 		ft_putstr_color(PROMPT_END);
@@ -42,6 +46,8 @@ void	parent_signal_handler(int signal)
 {
 	if (signal == SIGINT)
 	{
+		errno = ERROR_CTRL_C;
+		g_errno = ERROR_CTRL_C;
 		ft_putstr("\n");
 	}
 	if (signal == SIGQUIT)
