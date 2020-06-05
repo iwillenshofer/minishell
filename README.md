@@ -1,6 +1,6 @@
 <p align="center">
-	<img width="130px;" src="https://game.42sp.org.br/static/assets/images/42_logo_black.svg" align="center" alt="42" />&nbsp;&nbsp;&nbsp;
-	<img width="130px" src="https://game.42sp.org.br/static/assets/achievements/minishellm.png" align="center" alt="minishell" />
+	<img width="130px;" src="https://raw.githubusercontent.com/iwillenshofer/resources/main/images/42_logo_black.svg" align="center" alt="42" />&nbsp;&nbsp;&nbsp;
+	<img width="130px" src="https://raw.githubusercontent.com/iwillenshofer/resources/main/achievements/minishell.png" align="center" alt="minishell" />
 	<h1 align="center">minishell</h1>
 </p>
 <p align="center">
@@ -24,7 +24,7 @@
 
 > _The objective of this project is for you to create a simple shell._
 
-[Download the Subject ⤓](en.subject.pdf)
+
 
 <br>
 
@@ -86,7 +86,7 @@ Project created with [@fde-capu](https://www.github.com/fde-capu). Logs can be f
 
 ### Usage
 ```bash
-$ make 
+$ make
 $ ./minishell
 ```
 
